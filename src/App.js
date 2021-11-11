@@ -12,7 +12,8 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:3002/exchange-rate")
+    const apiPath = process.env.REACT_APP_API || "http://localhost:3002";
+    fetch(`${apiPath}/exchange-rate`)
       .then((res) => res.json())
       .then((result) => {
         this.setState({
